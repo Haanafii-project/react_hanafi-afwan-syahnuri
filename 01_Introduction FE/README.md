@@ -6,7 +6,7 @@ Front-end Developer merupakan seseorang yang betugas untuk mengembangkan sebuah 
 2. Bagaimana cara memulai untuk menjadi Front-end developer ?
 Untuk menjadi seorang Front-end Developer, kita perlu memahami apa itu internet dan bagaimana cara kerjanya. Selanjutnya kita perlu menguasai bahasa pemrograman untuk membangun sebuah tampilan website seperti HTML, CSS, dan Javascript. Untuk melakukan dokumentasi pada project yang sedang dibangun, biasanya seorang Front-end Developer menggunakan Version Control seperti Git dan Github. Version Control juga memudahkan seorang developer untuk bekerja sama dalam membangun sebuah project
 
-3. Teknologi yang digunakan seorang Front-end Developer
+3. Teknologi apa saja yang digunakan seorang Front-end Developer ?
 Ada berbagai teknologi yang digunakan seorang Front-end developer untuk mendukung kinerjanya, yaitu:
 
 - Version Control. 
