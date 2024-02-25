@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product</title>
+</head>
+<body>
+    <h1>Create Product</h1>
+    <form action="">
+        <fieldset>
+            <legend>Detail Product</legend>
+            <label for="ProductName">Product Name :</label>
+            <br>
+            <input type="text" name="ProductName" id="product-name" required minlength="6" maxlength="50">
+            <br>
+            <br>
+            <label for="ProductCategory">Product Category :</label>
+            <br>
+            <select name="Category" id="category" required>
+                <option value=""></option>
+                <option value="">Pakaian</option>
+                <option value="">Alat Tulis</option>
+                <option value="">Barang</option>
+            </select>
+            <br>
+            <br>
+            <label for="ProductCondition">Product Freshness :</label>
+            <br>
+            <input type="checkbox" id="condition1" name="condition1" value="condition">
+            <label for="condition1"> Brand New</label>
+            <br>
+            <input type="checkbox" id="condition2" name="condition2" value="condition">
+            <label for="condition2"> Second Hank</label>
+            <br>
+            <input type="checkbox" id="condition3" name="condition3" value="condition">
+            <label for="condition3"> Refurbished</label>
+            <br>
+            <br>
+            <label for="image">Image of Product</label>
+            <input type="button" value="Choose File" required>
+            <label for="image">No file chosen</label>
+            <br>
+            <br>
+            <label for="description">Additional Description</label>
+            <br>
+            <input type="text" name="Description" id="description" style="width: 300px; height: 80px;" required minlength="10" maxlength="100">
+            <br>
+            <br>
+            <label for="price">Product Price :</label>
+            <br>
+            <input type="number" name="ProductPrice" id="product-price" placeholder="Rp 100.000" required>
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+</body>
+</html>
