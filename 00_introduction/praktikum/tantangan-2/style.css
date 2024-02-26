@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.header h1{
+    display: inline-block;
+    background-color: red;
+}
+
+.header a {
+    display: block;
+    margin: 27px 0px;
+}
+
+.header button {
+    background-color: yellow;
+    size: 120px;
+    margin-left: 10px;
+}
+
+.header button:hover {
+    background-color: burlywood;
+}
+
+.content {
+    display: flex;
+    background-color: #37517E;
+;
+}
+
+.content h1 p a {
+    display: inline-block;
+}
+
+.getstarted {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.getstarted button {
+    background-color: yellow;
+    height: 50px;
+    width: 100px;
+}
+
+.getstarted button:hover {
+    background-color: burlywood;
+}
