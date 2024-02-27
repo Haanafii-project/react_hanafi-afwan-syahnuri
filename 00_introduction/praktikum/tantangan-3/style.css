@@ -1,0 +1,36 @@
+.box-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box1 {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+.box2 {
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+.box3 {
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+@media (max-width: 320px) {
+    .box1 {
+        background-color: yellow;
+    }
+    .box2 {
+        background-color: green;
+    }
+    .box3 {
+        background-color: red;
+    }
+}
