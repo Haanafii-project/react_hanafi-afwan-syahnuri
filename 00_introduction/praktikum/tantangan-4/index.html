@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="vendors/sweetalert2/dist/sweetalert2.min.js"></script>
 </head>
 <body>
     <header class="bg-white flex justify-between items-center p-4 shadow">
@@ -89,10 +90,19 @@
                     <input type="number" name="ProductPrice" id="product-price" placeholder="Rp 100.000" required  class="border border-gray-300 p-2 rounded-md">
                 </div>
                 <div class="flex justify-center mt-2">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
+                    <button id="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
                         Submit
                     </button>
                 </div>
+                    <script>
+                        document.getElementById('submit').addEventListener('click',function(){
+                            Swal.fire(
+                                'Good job!',
+                                'You clicked the button!',
+                                'success'
+                                );
+                        })
+                        </script>
 
             </form>
         </div>
