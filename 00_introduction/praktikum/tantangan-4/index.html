@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="vendors/sweetalert2/dist/sweetalert2.min.js"></script>
 </head>
 <body>
     <header class="bg-white flex justify-between items-center p-4 shadow">
@@ -40,7 +39,7 @@
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus quidem ipsum facere alias itaque animi dicta natus. Eos quasi sed corporis ex voluptas commodi assumenda maxime maiores ab culpa reiciendis dicta numquam a molestiae nesciunt placeat necessitatibus cum, ullam delectus ad praesentium, provident vel! Sed rem nemo consequuntur natus incidunt?
             </p>
         </div>
-        <div class="px-10 mx-10">
+        <div class="px-10 mx-10 mb-10">
             <form action="">
                 <h1 class="text-2xl">Detail Product</h1>
                 <div class="flex flex-col py-2">    
@@ -73,11 +72,11 @@
                         <label for="" class="ms-2">Brand New</label>
                     </div>
                     <div class="flex items-center">
-                        <input checked id="" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                        <input id="" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
                         <label for="" class="ms-2">New</label>
                     </div>
                     <div class="flex items-center">
-                        <input checked id="" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                        <input id="" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
                         <label for="" class="ms-2">Refurbished</label>
                     </div>
                     <label for="description" class="pt-1">Additional Description</label>
@@ -94,16 +93,6 @@
                         Submit
                     </button>
                 </div>
-                    <script>
-                        document.getElementById('submit').addEventListener('click',function(){
-                            Swal.fire(
-                                'Good job!',
-                                'You clicked the button!',
-                                'success'
-                                );
-                        })
-                        </script>
-
             </form>
         </div>
     </div>
