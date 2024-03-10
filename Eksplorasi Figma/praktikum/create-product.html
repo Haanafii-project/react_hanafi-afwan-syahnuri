@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="bg-white flex justify-between items-center p-4 shadow">
+      <div>
+        <h1 class="text-3xl">Simple header</h1>
+      </div>
+      <div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Home
+        </button>
+        <button class="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
+          Features
+        </button>
+        <button class="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
+          Pricing
+        </button>
+        <button class="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
+          FAQs
+        </button>
+        <button class="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
+          Pricing
+        </button>
+      </div>
+    </header>
+    <div class="container mx-auto">
+      <div class="flex justify-center mt-4">
+        <img src="./Tailwind_CSS_Logo.svg.png" alt="" />
+      </div>
+      <div class="flex flex-col items-center">
+        <h1 class="text-3xl py-4">Create Product</h1>
+        <p class="pb-4 text-center">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus quidem
+          ipsum facere alias itaque animi dicta natus. Eos quasi sed corporis ex
+          voluptas commodi assumenda maxime maiores ab culpa reiciendis dicta
+          numquam a molestiae nesciunt placeat necessitatibus cum, ullam
+          delectus ad praesentium, provident vel! Sed rem nemo consequuntur
+          natus incidunt?
+        </p>
+      </div>
+      <div class="px-10 mx-10 mb-10">
+        <form action="">
+          <h1 class="text-2xl">Detail Product</h1>
+          <div class="flex flex-col py-2">
+            <label for="" class="pb-1">Product Name</label>
+            <input type="text" name="ProductName" id="product-name" required minlength="6" maxlength="50" class="w-1/2 px-4 py-2 rounded-md border border-gray-300 outline-none focus:border-gray-400"/>
+          </div>
+          <div class="flex flex-col py-2">
+            <label for="" class="pb-1">Product Category</label>
+            <select class="w-1/3 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+              <option></option>
+              <option>Pakaian</option>
+              <option>Alat Tulis</option>
+            </select>
+          </div>
+          <div class="flex flex-col py-2">
+            <label for="" class="pb-1">Image of Product</label>
+            <div class="flex py-2">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Choose File
+              </button>
+              <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                No File Choosen
+              </button>
+            </div>
+          </div>
+          <div class="flex flex-col py-2">
+            <label for="">Product Freshness</label>
+            <div class="flex items-center mt-1">
+              <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+              <label for="" class="ms-2">Brand New</label>
+            </div>
+            <div class="flex items-center">
+              <input id="" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+              <label for="" class="ms-2">New</label>
+            </div>
+            <div class="flex items-center">
+              <input id="" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+              <label for="" class="ms-2">Refurbished</label>
+            </div>
+            <label for="description" class="pt-1">Additional Description</label>
+            <div class="mt-2">
+              <textarea id="about" name="about" rows="3" class="block w-full rounded-md border border-gray-300 p-3 text-gray-900 shadow-sm" required>
+              </textarea>
+            </div>
+          </div>
+          <div class="flex flex-col py-2">
+            <label for="price">Product Price :</label>
+            <input type="number" name="ProductPrice" id="product-price" placeholder="Rp 100.000" required class="border border-gray-300 p-2 rounded-md"/>
+          </div>
+          <div class="flex justify-center mt-2">
+            <button id="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full" onclick="alert('Produk berhasil ditambahkan')">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
