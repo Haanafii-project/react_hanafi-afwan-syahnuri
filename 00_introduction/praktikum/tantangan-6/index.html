@@ -1,0 +1,60 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Document</title>  
+</head>  
+<body>  
+    <section>  
+        <h1>Document</h1>  
+        <h2 id="jsdom">JS DOM</h2>  
+        <form action="" id="myForm">  
+            <label for="">Product Name </label>  
+            <input type="text" minlength="6" maxlength="25" required><br>  
+            <label for="" >Product Price</label>  
+            <input type="text" id="productPrice" required><br><br><br>  
+            <button type="submit" id="changeColorBtn">create product</button>  
+    </section>  
+    <div id="productTableContainer"> 
+ 
+    </div> 
+  
+    <script>  
+        document.getElementById('changeColorBtn').addEventListener('click', function(e) {  
+            e.preventDefault()  
+            document.getElementById('jsdom').style.color = 'red';  
+        }); 
+ 
+        function validateForm() { 
+        var productName = document.getElementById("productName").value; 
+        var productPrice = document.getElementById("productPrice").value; 
+         
+        if (productName.length < 6 || productName.length > 25) { 
+            alert("Nama produk harus memiliki panjang antara 6 dan 25 karakter."); 
+            return false; 
+        } 
+ 
+        if (isNaN(productPrice) || productPrice === "") { 
+            alert("Harga produk harus berupa angka."); 
+            return false; 
+        } 
+ 
+        return true; 
+    } 
+         
+        document.getElementById('productPrice').addEventListener("input", function(){ 
+            var inputValue = productPrice.value; 
+            if(inputValue.match(/[!@#\$%\^\&*\)\(+=._-]/g) || inputValue.match(/[a-zA-Z]/)) { 
+                alert("Name must not contain symbols."); 
+                productName.value = inputValue.replace(/[!@#\$%\^\&*\)\(+=._-]/g, ''); 
+            } 
+        }) 
+ 
+        const productTableContainer = document.getElementById('productTableContainer') 
+        const createTable = () => { 
+ 
+        } 
+    </script>  
+</body>  
+</html>

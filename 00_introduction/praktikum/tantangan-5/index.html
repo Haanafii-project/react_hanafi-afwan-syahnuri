@@ -6,19 +6,58 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <script>
-        var pilot = "Dr. Strange";
-        let status = false;
-        const battery = 100;
-        var kelas_marvel = [
-            {
-                nama: "Tony",
-                umur: "55",
-                Status: "Iron Man"
-            }
-        ]
-    </script>
+    <section>  
+        <h1>Document</h1>  
+        <h2 id="jsdom">JS DOM</h2>  
+        <form action="" id="myForm">  
+            <label for="productName">Product Name </label>  
+            <input type="text" id="productName" minlength="6" maxlength="25" required><br>  
+            <label for="productPrice">Product Price</label>  
+            <input type="text" id="productPrice" required pattern="[0-9]+"><br><br><br>  
+            <button type="button" id="changeColorBtn">create product</button>  
+        </form> 
+    </section>  
+    <div id="productTableContainer"> 
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+            </tbody>
+        </table>
+    </div>
 
+    <script>
+        document.getElementById('changeColorBtn').addEventListener('click', function() {
+            var productNameInput = document.getElementById('productName');
+            var productPriceInput = document.getElementById('productPrice');
+
+            if (productNameInput.checkValidity() && productPriceInput.checkValidity()) {
+                var productName = productNameInput.value;
+                var productPrice = productPriceInput.value;
+
+                // Create a new row in the table
+                var tableBody = document.getElementById('productTableBody');
+                var newRow = tableBody.insertRow();
+
+                // Insert cells into the new row
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+
+                // Populate the cells with the input values
+                cell1.textContent = productName;
+                cell2.textContent = productPrice;
+
+                // Clear input fields after adding to the table
+                productNameInput.value = '';
+                productPriceInput.value = '';
+            } else {
+                alert('Please fill out the form correctly.');
+            }
+        });
+    </script>
 </body>
 </html>
