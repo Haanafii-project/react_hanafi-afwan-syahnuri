@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Product</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      table {
+        border-collapse: collapse; /* Menggabungkan border */
+        width: 100%; /* Menentukan lebar tabel */
+      }
+      th,
+      td {
+        border: 1px solid #ddd; /* Menambahkan border pada setiap sel */
+        padding: 8px; /* Menambahkan padding di dalam sel */
+      }
+      th {
+        background-color: #f2f2f2; /* Memberikan warna latar belakang pada header */
+        text-align: left; /* Menyetel teks agar rata kiri */
+      }
+    </style>
   </head>
   <body>
 
@@ -100,7 +115,7 @@
             <input type="text" name="ProductPrice" id="productPrice" placeholder="Rp 100.000" class="border border-gray-300 p-2 rounded-md"/>
             <small id="productPriceError" class="error"></small>
           </div>
-          <div class="flex justify-center mt-2">
+          <div class="flex justify-center mt-2 pb-10">
             <button id="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
               Submit
             </button>
@@ -160,7 +175,7 @@
         const priceCell = document.createElement("td");
         
         nameHeader.textContent = "Product Name";
-        nameHeader.textContent = "Product Price";
+        priceHeader.textContent = "Product Price";
         
         headerRow.appendChild(nameHeader);
         headerRow.appendChild(priceHeader);
@@ -183,6 +198,12 @@
         console.log("Cek Button");
         checkProductName();
         checkProductPrice();
+        
+        const productName = productNameElement.value;
+        const productPrice = productPriceElement.value;
+        if (checkProductName(productName) && checkProductPrice(productPrice)){
+          createProductTable (productName, productPrice)
+        } 
         createProductTable(productNameElement.value, productPriceElement.value);
       });
 
