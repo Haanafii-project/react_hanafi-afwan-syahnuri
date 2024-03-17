@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+
+    <header class="bg-white flex justify-between items-center p-4 shadow">
+      <div>
+        <h1 class="text-3xl">Simple header</h1>
+      </div>
+      <div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Home
+        </button>
+        <button class="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
+          Features
+        </button>
+        <button class="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
+          Pricing
+        </button>
+        <button class="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
+          FAQs
+        </button>
+        <button class="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
+          Pricing
+        </button>
+      </div>
+    </header>
+
+    <div class="container mx-auto">
+      <div class="flex justify-center mt-4">
+        <img src="./assets/Tailwind_CSS_Logo.svg.png" alt="" />
+      </div>
+
+      <div class="flex flex-col items-center">
+        <h1 class="text-3xl py-4">Create Product</h1>
+        <p class="pb-4 text-center">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus quidem
+          ipsum facere alias itaque animi dicta natus. Eos quasi sed corporis ex
+          voluptas commodi assumenda maxime maiores ab culpa reiciendis dicta
+          numquam a molestiae nesciunt placeat necessitatibus cum, ullam
+          delectus ad praesentium, provident vel! Sed rem nemo consequuntur
+          natus incidunt?
+        </p>
+      </div>
+
+      <div class="px-10 mx-10 mb-10">
+        <form id="formCreateProduct">
+          <h1 class="text-2xl">Detail Product</h1>
+          <div class="flex flex-col py-2">
+            <label for="" class="pb-1">Product Name</label>
+            <input type="text" name="ProductName" id="productName" class="w-1/2 px-4 py-2 rounded-md border border-gray-300 outline-none focus:border-gray-400"/>
+            <small id="productNameError" class="error"></small>
+          </div>
+          <div class="flex flex-col py-2">
+            <label for="" class="pb-1">Product Category</label>
+            <select class="w-1/3 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+              <option></option>
+              <option>Pakaian</option>
+              <option>Alat Tulis</option>
+            </select>
+          </div>
+          <div class="flex flex-col py-2">
+            <label for="" class="pb-1">Image of Product</label>
+            <div class="flex py-2">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Choose File
+              </button>
+              <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                No File Choosen
+              </button>
+            </div>
+          </div>
+          <div class="flex flex-col py-2">
+            <label for="">Product Freshness</label>
+            <div class="flex items-center mt-1">
+              <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+              <label for="" class="ms-2">Brand New</label>
+            </div>
+            <div class="flex items-center">
+              <input id="" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+              <label for="" class="ms-2">New</label>
+            </div>
+            <div class="flex items-center">
+              <input id="" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+              <label for="" class="ms-2">Refurbished</label>
+            </div>
+            <label for="description" class="pt-1">Additional Description</label>
+            <div class="mt-2">
+              <textarea id="about" name="about" rows="3" class="block w-full rounded-md border border-gray-300 p-3 text-gray-900 shadow-sm">
+              </textarea>
+            </div>
+          </div>
+          <div class="flex flex-col py-2">
+            <label for="price">Product Price :</label>
+            <input type="text" name="ProductPrice" id="productPrice" placeholder="Rp 100.000" class="border border-gray-300 p-2 rounded-md"/>
+            <small id="productPriceError" class="error"></small>
+          </div>
+          <div class="flex justify-center mt-2">
+            <button id="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
+              Submit
+            </button>
+          </div>
+        </form>
+        <div id="productTableContainer">
+
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      const form = document.querySelector("#formCreateProduct");
+      const productNameElement = document.querySelector("#productName");
+      const productPriceElement = document.querySelector("#productPrice");
+      const productNameError = document.querySelector("#productNameError");
+      const productPriceError = document.querySelector("#productNameError");
+      const productTableContainer = document.querySelector("#productTableContainer");
+      
+      // Validasi Product Name
+      const checkProductName = () => {
+        const value = productNameElement.value;
+        const symbolPattern = /[!@#$%^&*(),.?":{}|<>]/;
+        console.log(value.length);
+        if (value.length === 0) {
+          alert("Product Name Kosong");
+        } else if (value.length > 5 ) {
+          alert("Product Name Terlalu Panjang")
+        } else if (symbolPattern.test(value)) {
+        alert("Product Name tidak boleh mengandung karakter simbol");
+        }
+      };
+
+      // Validasi Product Price
+      const checkProductPrice = () => {
+        const value = productPriceElement.value;
+        if (value.length < 4) {
+          alert("Product Price Terlalu Pendek");
+          console.log(value);
+        }
+      };
+
+      
+      // Memasukkan data ke dalam tabel
+      const createProductTable = () => {
+        console.log("createProductTable");
+        
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        const tbody = document.createElement("tbody");
+        const headerRow = document.createElement("tr");
+        const nameHeader = document.createElement("th");
+        const priceHeader = document.createElement("th");
+        const productRow = document.createElement("tr");
+        const nameCell = document.createElement("td");
+        const priceCell = document.createElement("td");
+        
+        nameHeader.textContent = "Product Name";
+        nameHeader.textContent = "Product Price";
+        
+        headerRow.appendChild(nameHeader);
+        headerRow.appendChild(priceHeader);
+
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+        
+        nameCell.textContent = productNameElement.value;
+        priceCell.textContent = productPriceElement.value;
+        productRow.appendChild(nameCell);
+        productRow.appendChild(priceCell);
+        tbody.appendChild(productRow);
+        table.appendChild(tbody);
+        
+        productTableContainer.appendChild(table);
+      }
+      
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        console.log("Cek Button");
+        checkProductName();
+        checkProductPrice();
+        createProductTable(productNameElement.value, productPriceElement.value);
+      });
+
+
+    </script>
+
+  </body>
+</html>
