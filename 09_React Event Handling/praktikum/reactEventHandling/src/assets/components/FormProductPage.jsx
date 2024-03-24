@@ -1,10 +1,15 @@
 export default function FormProductPage () {
+
+    // Soal Prioritas 1 - Menampilkan random number di console log ketika button di klik
     const generateRandomNumber = (event) => {
       event.preventDefault();      
       const randomNumber = Math.floor(Math.random() * 100) + 1;
       console.log(`Angka random: ${randomNumber}`);
-    };
+    }; 
+
     return (
+
+
 
        <div>
         <div className="container mx-auto px-10 mx-10 mb-10">
