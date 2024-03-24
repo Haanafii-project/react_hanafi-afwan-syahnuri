@@ -7,6 +7,31 @@ export default function FormProductPage () {
       console.log(`Angka random: ${randomNumber}`);
     }; 
 
+    // Soal Prioritas 2 - Validasi input Product Name
+    const form = document.querySelector("#formCreateProduct");
+
+    const productNameElement = document.querySelector("#productName");
+
+    const checkProductName = () => {
+      const value = productNameElement.value;
+      const symbolPattern = /[!@#$%^&*(),.?":{}|<>]/;
+      console.log(value.length);
+      if (value.length === 0) {
+        alert("Product Name Kosong");
+      } else if (value.length > 10 ) {
+        alert("Product Name Tidak Boleh Melebihi 10 Karakter")
+      } else if (symbolPattern.test(value)) {
+      alert("Product Name tidak boleh mengandung karakter simbol");
+      }
+    };
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      console.log("Cek Button");
+      checkProductName();
+    });
+
+
     return (
 
 
