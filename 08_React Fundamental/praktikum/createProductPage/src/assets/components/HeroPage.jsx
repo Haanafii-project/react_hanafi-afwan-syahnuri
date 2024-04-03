@@ -3,7 +3,7 @@ export default function HeroPage () {
         <div>
             <div className="container mx-auto">
               <div className="flex justify-center mt-4">
-                <img src="src\assets\images\Tailwind_CSS_Logo.svg.png" alt="" />
+                <img src="src\assets\images\Tailwind_CSS_Logo.png" alt="" />
               </div>
               <div className="flex flex-col items-center">
                 <h1 className="text-3xl py-4">Create Product</h1>
