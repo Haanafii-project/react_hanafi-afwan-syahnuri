@@ -1,17 +1,20 @@
-import Footer from "./components/Footer"
-import Navbar from "./components/Navbar"
-import ContactPage from "./components/ContactSection"
-// import HeroSection from "./components/HeroSection"
+import LandingPage from "./pages/LandingPage/LandingPage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+
 
 function App() {
 
   return (
-    <>
-      <Navbar/>
-      <ContactPage/>
-      {/* <HeroSection/> */}
-      <Footer/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage/>}/>
+        <Route path="/About" element={<AboutPage/>}/>
+        <Route path="/Contact" element={<ContactPage/>}/>
+      </Routes>
+    </Router>
   )
 }
 
