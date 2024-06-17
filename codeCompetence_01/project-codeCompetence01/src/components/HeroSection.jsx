@@ -10,9 +10,9 @@ export default function HeroSection() {
             <p className="py-5 text-lg font-medium">
                 Through our lens, every fleeting moment is artfully captured and transformed into cherished memories that last forever.
             </p>
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-2 text-2xl font-semibold">
                 <div>
-                    <a href="" className="btn rounded-full bg-cyan-700 hover:bg-cyan-800 text-white">
+                    <a href="" className="btn text-2xl font-semibold  rounded-full bg-cyan-700 hover:bg-cyan-800 text-white">
                         Get Started
                     </a>
                 </div>
