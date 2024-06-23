@@ -6,9 +6,11 @@ export default function SignIn() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    const handleClick = (event) => {
+    const handleLogin = (event) => {
         event.preventDefault();
         const newErrors = [];
+        const dummyUser = {email: 'admin@email.com', password: 'ganteng123'};
+        const user = JSON.parse(localStorage.getItem('user'));
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             newErrors.push('Please enter a valid email address.');
         }
@@ -20,6 +22,16 @@ export default function SignIn() {
             alert("Login Berhasil");
             setEmail('');
             setPassword('');
+        }
+        if (user && user.username === email && user.password === password) {
+            localStorage.setItem('isLoggedIn', true);
+            window.location.reload();
+        } else if (email === dummyUser.email && password === dummyUser.password) {
+            localStorage.setItem('user', JSON.stringify(dummyUser));
+            localStorage.setItem('isLoggedIn', true);
+            window.location.href = "/"
+        } else {
+            setErrors('Invalid username or password');
         }
     };
   return (
@@ -49,7 +61,7 @@ export default function SignIn() {
                     )}
                 </div>
                 <div>
-                    <button to={"/"} className='bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded w-full' onClick={handleClick}>
+                    <button to={"/"} className='bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded w-full' onClick={handleLogin}>
                         Sign In
                     </button>
                 </div>

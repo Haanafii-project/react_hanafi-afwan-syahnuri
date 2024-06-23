@@ -90,6 +90,14 @@ export default function createProductPage() {
                 productDescription: description,
                 productPrice: price,
             })
+            .then(function (response) {
+                console.log(response);
+                alert("Produk Berhasil Diubah!");
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("Produk Gagal Diubah!");
+            })
             setEditId(null)
         } else {
             axios.post("https://666db9d87a3738f7cacd277e.mockapi.io/product", {
