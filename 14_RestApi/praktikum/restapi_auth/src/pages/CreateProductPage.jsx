@@ -175,8 +175,8 @@ export default function createProductPage() {
                 <button className="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
                     Pricing
                 </button>
-                <Link to={"/signup"} className="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
-                    Sign Up
+                <Link to={"/signin"} className="bg-transparent hover:text-blue-700 text-blue-500 font-semibold py-2 px-4 rounded">
+                    Sign in
                 </Link>
             </div>
         </header>
