@@ -1,20 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import sepatuImage from "../assets/sepatuimage.jpg"
+import axios from "axios";
 
 export default function createProductPage() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [ data, setData ] = useState([
-        {
-            productName:"Sepatu",
-            productCategory:"alas kaki",
-            productImage:{sepatuImage},
-            productFreshness:"New",
-            productDescription:"Sepatu warna warna biru",
-            productPrice:10000,
-        }
-    ]);
-
+    const [ data, setData ] = useState([]);
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [ name, setname] = useState ("");
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -26,11 +16,18 @@ export default function createProductPage() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [ price, setPrice] = useState ("");
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [ image, setImage] = useState (null);
+    const [ editId, setEditId] = useState ();
+    
+
+    async function fetchData () {
+        const response = await axios.get("https://666db9d87a3738f7cacd277e.mockapi.io/product");
+        setData(response.data)
+    }
+
     
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect (()=>{
-        setData(data);
+        fetchData(data);
     }, [data]);
 
     const validateName = (name) => {
@@ -71,41 +68,82 @@ export default function createProductPage() {
             alert("Harga produk harus berupa angka.");
             return;
         }
-        if (name === "" || category === "" || image === "" || freshness === "" || description === "" || price === ""){
+        if (name === "" || category === "" || freshness === "" || description === "" || price === ""){
             alert("Data Tidak Boleh Kosong");
             return;
         }
 
+
         const newData = {
             productName: name,
             productCategory: category,
-            productImage: URL.createObjectURL(image),
             productFreshness: freshness,
             productDescription: description,
             productPrice: price,
+        }
+
+        if (editId) {
+            axios.put("https://666db9d87a3738f7cacd277e.mockapi.io/product/"+ editId, {
+                productName: name,
+                productCategory: category,
+                productFreshness: freshness,
+                productDescription: description,
+                productPrice: price,
+            })
+            setEditId(null)
+        } else {
+            axios.post("https://666db9d87a3738f7cacd277e.mockapi.io/product", {
+                productName: name,
+                productCategory: category,
+                productFreshness: freshness,
+                productDescription: description,
+                productPrice: price,
+            })
+            .then(function (response) {
+                console.log(response);
+                alert("Produk Berhasil Ditambahkan!");
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("Produk Gagal Ditambahkan!");
+            })
         }
 
         setData([...data, newData]);
 
         setname("");
         setCategory("");
-        setImage(null);
         setFreshness("");
         setDescription("");
         setPrice("");
 
-        alert("Produk Berhasil Ditambah");
     }
 
-    const deleteData = (productName) => {
-        const confirmation = window.confirm(`Anda yakin ingin menghapus produk ${productName}?`);
-        if (confirmation) {
-            const newData = data.filter((item) => item.productName !== productName);
-            setData(newData);
-        } else {
-            console.log("Proses hapus produk dibatalkan");
+    const deleteData = (id) => {
+        if (confirm("Yakin ingin menghapus produk ini?")) {
+            axios.delete("https://666db9d87a3738f7cacd277e.mockapi.io/product/"+ id)
+                .then(() => {
+                    alert("Produk telah dihapus.");
+                })
+                .catch((error) => {
+                    alert(`Gagal menghapus produk: ${error.message}`);
+            });
         }
     };
+
+    const editData = (id) => {
+        const editProduct = data.find(p => p.id === id)
+        setname(editProduct.productName);
+        setCategory(editProduct.productCategory);
+        setFreshness(editProduct.productFreshness);
+        setDescription(editProduct.productDescription);
+        setPrice(editProduct.productPrice);
+
+        setEditId(id)
+    }
+
+
+    
 
     return (
         <>
@@ -189,7 +227,6 @@ export default function createProductPage() {
                                 type="file"
                                 accept="image/*"
                                 className="w-1/2 px-4 py-2 rounded-md border border-gray-300 outline-none focus:border-gray-400"
-                                onChange={(e) => setImage(e.target.files[0])}
                             />
                         </div>
                     </div>
@@ -250,7 +287,6 @@ export default function createProductPage() {
                         <tr className="bg-base-200">
                             <th>Product Name</th>
                             <th>Product Category</th>
-                            <th>Product Image</th>
                             <th>Product Freshness</th>
                             <th>Product Description</th>
                             <th>Product Price</th>
@@ -259,18 +295,18 @@ export default function createProductPage() {
                     </thead>
                     <tbody>
                         {data.map((item) => (
-                            <tr key={item.productName}>
+                            <tr key={item.id}>
                                 <td>{item.productName}</td>
                                 <td>{item.productCategory}</td>
-                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <img src={item.productImage} alt={item.productName} className="w-20 h-20 object-cover" />
-                                </td>
                                 <td>{item.productFreshness}</td>
                                 <td>{item.productDescription}</td>
-                                <td>{item.productPrice}</td>
-                                <td>
-                                    <button className="btn-link text-red-600" onClick={()=> deleteData (item.productName)}>
+                                <td>Rp {item.productPrice}</td>
+                                <td className="flex gap-4">
+                                    <button className="btn-link text-red-600" onClick={()=> deleteData (item.id)}>
                                         Delete
+                                    </button>
+                                    <button className="btn-link text-green-600" onClick={()=> editData (item.id)}>
+                                        Edit
                                     </button>
                                 </td>
                             </tr>
