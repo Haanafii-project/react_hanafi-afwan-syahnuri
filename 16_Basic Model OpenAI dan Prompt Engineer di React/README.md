@@ -1,6 +1,5 @@
 # Basic Model OpenAI
 **1. Pengertian:**
-
 - Model Dasar: Model dasar OpenAI, seperti GPT-4, adalah model bahasa besar yang dilatih menggunakan data teks dari berbagai sumber. Model ini menggunakan arsitektur Transformer untuk memahami dan menghasilkan teks yang mirip dengan teks manusia.
 - Fungsi: Model ini dirancang untuk berbagai aplikasi, termasuk pembuatan teks otomatis, penerjemahan bahasa, analisis sentimen, penjawaban pertanyaan, dan masih banyak lagi.
 
